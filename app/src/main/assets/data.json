@@ -1,0 +1,242 @@
+{
+    "Data": [
+        {
+            "name": "CHC Hospital",
+            "address": "Sehra",
+            "district": "Betul",
+            "latitude": 21.80879623,
+            "longitude": 77.88460634
+        },
+        {
+            "name": "CHC Hospital",
+            "address": "Chincholi",
+            "district": "Betul",
+            "latitude": 22.00954507,
+            "longitude": 78.26812323
+        },
+        {
+            "name": "CHC Hospital",
+            "address": "Shahpur",
+            "district": "Betul",
+            "latitude": 22.19492203,
+            "longitude": 77.9097846
+        },
+        {
+            "name": "CHC Hospital",
+            "address": "Amla",
+            "district": "Betul",
+            "latitude": 21.9247444,
+            "longitude": 78.124486
+        },
+        {
+            "name": "CHC Hospitalan",
+            "address": "Prabhatpattan",
+            "district": "Betul",
+            "latitude": 21.64826267,
+            "longitude": 78.26812323
+        },
+        {
+            "name": "CHC Hospitl",
+            "address": "Athner",
+            "district": "Betul",
+            "latitude": 21.62323438,
+            "longitude": 77.92075589
+        },
+        {
+            "name": "CHC Hospital",
+            "address": "Bhimpur",
+            "district": "Betul",
+            "latitude": 21.9109278,
+            "longitude": 77.5447454
+        },
+        {
+            "name": "SDM MANWAR",
+            "address": "Manwar",
+            "district": "dhar",
+            "latitude": 22.2326428,
+            "longitude": 75.0870236
+        },
+        {
+            "name": "SDM DEPALPUR",
+            "address": "depalpur",
+            "district": "indore",
+            "latitude": 22.8502695,
+            "longitude": 75.5457668
+        },
+        {
+            "name": "SDM KUKCHHI",
+            "address": "kukchhi",
+            "district": "dhar",
+            "latitude": 22.2023475,
+            "longitude": 74.7562466
+        },
+        {
+            "name": "SDM BADNAWAR",
+            "address": "badnawar",
+            "district": "indore",
+            "latitude": 23.0215609,
+            "longitude": 75.24049
+        },
+        {
+            "name": "SDM SANWER",
+            "address": "sanwer",
+            "district": "indore",
+            "latitude": 22.7541031,
+            "longitude": 75.8464445
+        },
+        {
+            "name": "CEO SANWER",
+            "address": "sanwer",
+            "district": "indore",
+            "latitude": 22.7541031,
+            "longitude": 75.8464445
+        },
+        {
+            "name": "CEO DEPALPUR",
+            "address": "depalpur",
+            "district": "indore",
+            "latitude": 22.8502695,
+            "longitude": 75.5457668
+        },
+        {
+            "name": "SDM THANDLA",
+            "address": "thandla",
+            "district": "JHABUA",
+            "latitude": 23.007956,
+            "longitude": 74.5768
+        },
+        {
+            "name": "SDM BHABRA",
+            "address": "bhabra",
+            "district": "JHABUA",
+            "latitude": 23.0098769,
+            "longitude": 74.797448
+        },
+        {
+            "name": "SDM JABAT",
+            "address": "jobat",
+            "district": "ALIRAJPUR",
+            "latitude": 22.416705,
+            "longitude": 74.566695
+        },
+        {
+            "name": "SDM MEGHNAGAR",
+            "address": "meghnagar",
+            "district": "JHABUA",
+            "latitude": 22.908052,
+            "longitude": 74.545503
+          },
+        {
+            "name": "SDM RANAPUR",
+            "address": "ranapur",
+            "district": "JHABUA",
+            "latitude": 22.648625,
+            "longitude": 74.5214197
+        },
+        {
+            "name": "SDM PETLAWAD",
+            "address": "petlawad",
+            "district": "JHABUA",
+            "latitude": 23.0098769,
+            "longitude": 74.797448
+        },
+        {
+            "name": "CEO BHABHARA",
+            "address": "bhabra",
+            "district": "ALIRAJPUR",
+            "latitude": 23.0098769,
+            "longitude": 74.797448
+        },
+        {
+            "name": "CEO JOBAT",
+            "address": "jobat",
+            "district": "ALIRAJPUR",
+            "latitude": 22.416705,
+            "longitude": 74.566695
+        },
+        {
+            "name": "sdm rajpur",
+            "address": "rajpur",
+            "district": "khargone",
+            "latitude": 21.9041,
+            "longitude": 75.16195
+        },
+        {
+            "name": "sdm pansemal",
+            "address": "pansemal",
+            "district": "badwani",
+            "latitude": 21.6914,
+            "longitude": 74.7571
+        },
+        {
+            "name": "sdm sendhawa",
+            "address": "sendhawad",
+            "district": "khargone",
+            "latitude": 21.6906179,
+            "longitude": 75.1142249
+        },
+        {
+            "name": "sdm mandleswar",
+            "address": "mandleshver",
+            "district": "khargone",
+            "latitude": 22.1605112,
+            "longitude": 75.6807689
+        },
+        {
+            "name": "sdm badwah",
+            "address": "badwah",
+            "district": "badwah",
+            "latitude": 22.252609,
+            "longitude": 76.040429
+        },
+        {
+            "name": "ceo khandwa",
+            "address": "khandwa",
+            "district": "khandwa",
+            "latitude": 21.857174,
+            "longitude": 76.3369479
+        },
+        {
+            "name": "Hospital, Burhanpur",
+            "address": "Burhanpur",
+            "latitude": 0,
+            "longitude": 0
+        },
+        {
+            "name": "Zila Panchayat, Burhanpur",
+            "address": "Burhanpur",
+            "latitude": 0,
+            "longitude": 0
+        },
+        {
+            "name": "SM Hospital",
+            "address": "Burhanpur",
+            "latitude": 0,
+            "longitude": 0
+        },
+        {
+            "name": "SDM Office",
+            "address": "Burhanpur",
+            "latitude": 21.36574,
+            "longitude": 76.56332
+        },
+        {
+            "name": "SDM Nepanagar",
+            "address": "Burhanpur",
+            "latitude": 0,
+            "longitude": 0
+        },
+        {
+            "name": "Subhash School",
+            "address": "Burhanpur",
+            "latitude": 21.31111,
+            "longitude": 76.22187
+        },
+        {
+            "name": "GHSS",
+            "address": "Burhanpur",
+            "latitude": 21.30802,
+            "longitude": 76.23021
+        }
+    ]
+}
