@@ -2,10 +2,13 @@ package app.trirail.com.myapplication;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,126 +32,57 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.trirail.com.myapplication.database.DBHelper;
 import app.trirail.com.myapplication.model.location.LocationList;
 import app.trirail.com.myapplication.model.location.LocationResponseModel;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-    public GoogleMap mMap;
+public class MainActivity extends AppCompatActivity {
+    private Button btn_add_location,
+            btn_show_location;
     private Context mContext;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
+        dbHelper = DBHelper.getInstance(mContext);
         //--
-        if (isServiceOk()) {
-            initializeMap();
-        } else {
-            Toast.makeText(this, "Can't connect to mapping service", Toast.LENGTH_SHORT).show();
-        }
-
+        btn_add_location = findViewById(R.id.btn_add_location);
+        btn_show_location = findViewById(R.id.btn_show_location);
         //--
+        btn_show_location.setOnClickListener(view -> {
+            Intent intent = new Intent(mContext, LocationActivity.class);
+            startActivity(intent);
+        });
+        btn_add_location.setOnClickListener(view -> {
+            Intent intent = new Intent(mContext, AddLocationActivity.class);
+            startActivity(intent);
+        });
+        //-- Save Location in to DB
+        saveLocation();
 
     }
 
-
-    private List<LocationList> getList() {
-        //--
-        List<LocationList> locationLists = new ArrayList<>();
+    private void saveLocation() {
+        int count = dbHelper.dataItemDao().locationCount();
         AssetManager assetManager = this.getAssets();
+        List<LocationList> locationLists = new ArrayList<>();
         try {
-            InputStream ims = assetManager.open("data.json");
-            Gson gson = new Gson();
-            Reader reader = new InputStreamReader(ims);
-            LocationResponseModel gsonObj = gson.fromJson(reader, LocationResponseModel.class);
-            locationLists = gsonObj.getData();
-            Log.i("--->", "onCreate: " + locationLists);
+            if (count == 0) {
+                InputStream ims = assetManager.open("data.json");
+                Gson gson = new Gson();
+                Reader reader = new InputStreamReader(ims);
+                LocationResponseModel gsonObj = gson.fromJson(reader, LocationResponseModel.class);
+                locationLists = gsonObj.getData();
+                dbHelper.dataItemDao().insertAllStops(locationLists);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return locationLists;
-    }
-
-    private boolean isServiceOk() {
-        GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
-        int result = googleAPI.isGooglePlayServicesAvailable(this);
-
-        if (result != ConnectionResult.SUCCESS) {
-            if (googleAPI.isUserResolvableError(result)) {
-                googleAPI.getErrorDialog(this, result,
-                        110).show();
-            }
-            return false;
-        }
-        return true;
-    }
-
-    private void initializeMap() {
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
-        }
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        if (googleMap != null) {
-            mMap = googleMap;
-            getGoogleMapSetting(googleMap);
-            moveToDefaultLocation(googleMap);
-            addStopMarker(getList());
-            // -- Show all in service train Detail
-
-            googleMap.setOnMarkerClickListener(this);
-        } else {
-            Toast.makeText(this, "Can't connect to mapping service", Toast.LENGTH_SHORT).show();
-        }
 
     }
 
-    private void addStopMarker(List<LocationList> locationLists) {
-        MarkerOptions markerOptions = new MarkerOptions();
-        if (locationLists != null && !locationLists.isEmpty()) {
-            for (LocationList data : locationLists){
-                markerOptions.position(new LatLng(data.getLatitude(), data.getLongitude()));
-                markerOptions.title(data.getName());
-                markerOptions.snippet(data.getAddress() + "," + data.getDistrict());
-                Marker m = mMap.addMarker(markerOptions);
-            }
-        }
-    }
 
-    private void getGoogleMapSetting(GoogleMap googleMap) {
-        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
-        }
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.setMyLocationEnabled(false);
-        googleMap.setMinZoomPreference(8);
-        googleMap.setMaxZoomPreference(15);
-        googleMap.getUiSettings().setZoomGesturesEnabled(true);
-        googleMap.getUiSettings().setTiltGesturesEnabled(false);
-        googleMap.getUiSettings().setZoomControlsEnabled(false);
-        googleMap.getUiSettings().setMyLocationButtonEnabled(false);
-        googleMap.getUiSettings().setMapToolbarEnabled(false); //-- To hide navigation icon ( map toolbar)
-        googleMap.isBuildingsEnabled();
-        googleMap.setBuildingsEnabled(false);
-        googleMap.isIndoorEnabled();
-        googleMap.setIndoorEnabled(false);
-        googleMap.getUiSettings().setRotateGesturesEnabled(false);
-    }
-
-    private void moveToDefaultLocation(GoogleMap googleMap) {
-        LatLng florida = new LatLng(20.5937, 78.9629);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(florida));
-    }
-
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        return false;
-    }
 }

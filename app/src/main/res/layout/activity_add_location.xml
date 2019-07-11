@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddLocationActivity">
+    <!--
+                "name":
+                "address":,
+                "district":
+                "latitude":
+                "longitude":
+    -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Name"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:hint="Name"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|text"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Enter Address"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:hint="Address"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|text"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Enter District"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_district"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:hint="District"
+                android:imeOptions="actionNext"
+                android:inputType="textNoSuggestions|text"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <Button
+                android:id="@+id/btn_get_location"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@color/colorAccent"
+                android:text="Get Location"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Enter Latitude"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_latitude"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:hint="Latitude"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Enter Longitude"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+
+            <EditText
+                android:id="@+id/et_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:hint="Longitude"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/secondary_text" />
+
+            <Button
+                android:id="@+id/btn_save_location"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_bg"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
